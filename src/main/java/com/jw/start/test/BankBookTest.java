@@ -15,12 +15,12 @@ public class BankBookTest {
 		BankBookDAO bankBookDAO = new BankBookDAO();
 		BankBookDTO bankBookDTO2 = new BankBookDTO();
 		
-		/*bankBookDTO.setBOOKNUM(System.currentTimeMillis());
+		bankBookDTO.setBOOKNUM(System.currentTimeMillis());
 		bankBookDTO.setBOOKNAME("도라에몽");
 		bankBookDTO.setBOOKRATE(12.23);
 		bankBookDTO.setBOOKSALE(1);
 		
-		try {
+		/*try {
 			int result = bankBookDAO.setBankBook(bankBookDTO);
 			if (result>0){
 				System.out.println("성공~ ^ ^");
@@ -47,7 +47,7 @@ public class BankBookTest {
 		}*/
 		
 		//4번
-		/*bankBookDTO.setBOOKNUM(1111);
+		bankBookDTO.setBOOKNUM(1111);
 		try {
 			bankBookDTO2 = bankBookDAO.getDetail(bankBookDTO);
 			System.out.println(bankBookDTO2.getBOOKNUM());
@@ -57,11 +57,11 @@ public class BankBookTest {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 		//3번
 		
-		bankBookDTO.setBOOKNUM(0);
+		/*bankBookDTO.setBOOKNUM(0);
 		bankBookDTO.setBOOKSALE(1);
 		 try {
 			int result = bankBookDAO.setChangeSale(bankBookDTO);
@@ -71,7 +71,7 @@ public class BankBookTest {
 			} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 	
