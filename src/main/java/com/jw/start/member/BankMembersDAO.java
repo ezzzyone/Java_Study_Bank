@@ -12,7 +12,7 @@ public class BankMembersDAO implements MembersDAO{
 	@Override
 	public int setJoin(BankMembersDTO bankMembersDTO) throws Exception {
 		Connection con  = DBConnector.getConnection();
-		String sql="insert into BANKMEMBERS(USERNAME, PASSWORD, NAME, EMAIL, PHONE) values (?,?,?,?,?)";
+		String sql="insert into BANKMEMBERS(username, password, name, email, phone) values (?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setString(1, bankMembersDTO.getUsername());
@@ -46,11 +46,11 @@ public class BankMembersDAO implements MembersDAO{
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
-			bankMembersDTO.setUsername(rs.getString("USERNAME"));
-			bankMembersDTO.setPassword(rs.getString("PASSWORD"));
-			bankMembersDTO.setName(rs.getString("NAME"));
-			bankMembersDTO.setEmail(rs.getString("EMAIL"));
-			bankMembersDTO.setPhone(rs.getString("PHONE"));
+			bankMembersDTO.setUsername(rs.getString("username"));
+			bankMembersDTO.setPassword(rs.getString("password"));
+			bankMembersDTO.setName(rs.getString("name"));
+			bankMembersDTO.setEmail(rs.getString("email"));
+			bankMembersDTO.setPhone(rs.getString("phone"));
 			bankMembersDTOs.add(bankMembersDTO);
 		}
 		DBConnector.disConnect(rs, st, con);
