@@ -8,13 +8,13 @@
 </head>
 <body>
 
-    <h1>☆Login Page(´▽`ʃ♡ƪ)</h1>
+    <h1>Login Page(´▽`ʃ♡ƪ)</h1>
 
 <form action="./login" method = "POST">
 <div class = "container">
 <hr>
-I D <input type="text" name ="id" placeholder="아이디"><br>
-PW <input type="password" name ="pw" placeholder="비밀번호"> <input type="submit" value="로그인">
+I D <input type="text" name ="username" placeholder="아이디"><br>
+PW <input type="password" name ="password" placeholder="비밀번호"> <input type="submit" value="로그인">
 
 </div>
 <hr>

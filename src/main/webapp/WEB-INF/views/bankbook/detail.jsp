@@ -1,7 +1,7 @@
 <%@page import="com.jw.start.bankbook.BankBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("dto"); %>
+<%--     <% BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("dto"); %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,37 +19,31 @@
 <th>NAME</th>
 <th>NUM</th>
 <th>RATE</th>
-<th>SALE</th>
-<th>팔아요?</th>
+
 </thead>
 
 <tbody>
-<td> <%= bankBookDTO.getBookName() %>
-</td>
-<td> <%= bankBookDTO.getBookNum() %>
-</td>
-<td> <%= bankBookDTO.getBookRate() %>
-</td>
-<td> <%= bankBookDTO.getBookSale() %>
-</td>
-<td><% if(bankBookDTO.getBookSale()==1){%>
-판매중!
-<%} else{ %>
-안판매중 
-<%} %>
-</td>
+<td>${requestScope.dto.getBookName()}</td>
+<td>${requestScope.dto.bookNum}</td>
+<td>${dto.bookRate}</td>
+
+
+
 
 </tbody>
 
 
 </table>
 
-<!-- 상대 -->
+
+</body>
+<br>
+<img src="../resources/img/fool.jpg"> <br>
 <a href="../member/login">Login</a>
 <!-- 절대 -->
 <a href="/member/join">join</a>
-
+<a href="./update?bookNum=${dto.bookNum}">Update</a>
+<a href="./delete?bookNum=${dto.bookNum}">Delete</a>
 <a href="./list">back to list</a>
 
-</body>
 </html>

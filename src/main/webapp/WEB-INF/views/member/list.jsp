@@ -1,10 +1,9 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.jw.start.member.BankMembersDTO"%>
-<%@page import="com.jw.start.member.BankMembersDAO"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% ArrayList<BankMembersDTO> ar = (ArrayList<BankMembersDTO>)request.getAttribute("list"); %>
-<!DOCTYPE html>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%-- <% ArrayList<BankMembersDTO> ar = (ArrayList<BankMembersDTO>)request.getAttribute("list"); %>
+<!DOCTYPE html> --%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -14,7 +13,7 @@
 	<h1>멤버 리스트 페이지</h1>
 
 	<table>
-		<thead>
+<%-- 		<thead>
 			<tr>
 				<th>ID</th>
 				<th>NAME</th>
@@ -24,8 +23,8 @@
 			</tr>
 		</thead>
 
-		<tbody>
-			<% for(BankMembersDTO bDto : ar) { %>
+	
+			 <% for(BankMembersDTO bDto : ar) { %>
 			<tr>
 				<td><%= bDto.getUsername() %></td>
 				<td><%= bDto.getName() %></td>
@@ -33,7 +32,21 @@
 				<td><%= bDto.getPassword() %></td>
 				<%}%>
 
-			</tr>
+			</tr>  --%>
+	<tbody>	
+	<c:forEach begin="0" end="10" var="i" step="1">
+    <h3>${pageScope.i}</h3>
+    
+    </c:forEach>
+    
+    <c:forEach items="${requestScope.list}" var="dto">
+    <tr>
+    <td>${pageScope.dto.username}</td>
+    <td>${pageScope.dto.name}</td>
+    <td>${pageScope.dto.email}</td>
+    <td>${pageScope.dto.password}</td>
+    </tr>
+    </c:forEach>
 		</tbody>
 	</table>
 </body>

@@ -1,11 +1,9 @@
-<%@page import="com.jw.start.bankbook.BankBookDTO"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    <% //스크립틀릿: 자바코드쓰는
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%--     <% //스크립틀릿: 자바코드쓰는
     ArrayList<BankBookDTO> ar = (ArrayList<BankBookDTO>)request.getAttribute("list");
-    %>
+    %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,12 +22,28 @@
     </thead>
 
     <tbody>
-      <% for(BankBookDTO bankBookDTO : ar) {%>
+<%--       <% for(BankBookDTO bankBookDTO : ar) {%>
      <tr>
             <td><a href="./detail?bookNum=<%=bankBookDTO.getBookNum() %>" ><%= bankBookDTO.getBookName() %></a></td>
             <!--  <td><%= bankBookDTO.getBookRate()  %></td>-->
         </tr>
-    <%} %>
+    <%} %>  --%>
+    
+<%--     <c:forEach begin="0" end="10" var="i">
+    <h3>${i}</h3>
+    
+    </c:forEach> --%>
+    
+    <c:forEach items="${requestScope.list}" var="dto"> 
+    
+    <tr>
+    <td><a href="./detail?bookNum=${pageScope.dto.bookNum}">${pageScope.dto.bookName}</a></td>
+    <td>${pageScope.dto.bookRate}</td>
+    </tr>
+    
+    
+     </c:forEach>
+    
 
     </tbody>
 

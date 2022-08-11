@@ -10,7 +10,7 @@
 <form action="add" method ="post">
 <h1>통장정보등록 (⓿_⓿)</h1>	
 <hr>
-통장번호<input type="text" name=bookNum><br>
+통장번호<input type="text" name=bookNum ><br>
 통장이름<input type="text" name=bookName><br>
 이자율<input type="text" name=bookRate><br>
 판매여부<input type="text" name=bookSale><br>
