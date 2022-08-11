@@ -16,10 +16,10 @@ public class BankBookDAO implements BookDAO{
 		String sql = "insert into BANKBOOK(BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) values (?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setLong(1, bankBookDTO.getBOOKNUM());
-		st.setString(2, bankBookDTO.getBOOKNAME());
-		st.setDouble(3,bankBookDTO.getBOOKRATE());
-		st.setInt(4, bankBookDTO.getBOOKSALE());
+		st.setLong(1, bankBookDTO.getBookNum());
+		st.setString(2, bankBookDTO.getBookName());
+		st.setDouble(3,bankBookDTO.getBookRate());
+		st.setInt(4, bankBookDTO.getBookSale());
 		
 		int rs = st.executeUpdate();
 		
@@ -42,10 +42,10 @@ public class BankBookDAO implements BookDAO{
 		
 		while(rs.next()) {
 			BankBookDTO bankBookDTO = new BankBookDTO();
-			bankBookDTO.setBOOKNUM(rs.getLong("BOOKNUM"));
-			bankBookDTO.setBOOKNAME(rs.getNString("BOOKNAME"));
-			bankBookDTO.setBOOKRATE(rs.getDouble("BOOKRATE"));
-			bankBookDTO.setBOOKSALE(rs.getInt("BOOKSALE"));
+			bankBookDTO.setBookNum(rs.getLong("bookNum"));
+			bankBookDTO.setBookName(rs.getNString("bookName"));
+			bankBookDTO.setBookRate(rs.getDouble("bookRate"));
+			bankBookDTO.setBookSale(rs.getInt("bookSale"));
 			bankBookDTOs.add(bankBookDTO);
 		}
 		
@@ -61,8 +61,8 @@ public class BankBookDAO implements BookDAO{
 		String sql = "update BANKBOOK set booksale= ? where booknum = ?";
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setInt(1, bankBookDTO.getBOOKSALE());
-		st.setLong(2, bankBookDTO.getBOOKNUM());
+		st.setInt(1, bankBookDTO.getBookSale());
+		st.setLong(2, bankBookDTO.getBookNum());
 		
 		int result = st.executeUpdate();
 		
@@ -79,16 +79,16 @@ public class BankBookDAO implements BookDAO{
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		
-		st.setLong(1, bankBookDTO.getBOOKNUM());
+		st.setLong(1, bankBookDTO.getBookNum());
 		
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
 			bankBookDTO2 = new BankBookDTO();
-			bankBookDTO2.setBOOKNUM(rs.getLong("BOOKNUM"));
-			bankBookDTO2.setBOOKNAME(rs.getNString("BOOKNAME"));
-			bankBookDTO2.setBOOKRATE(rs.getDouble("BOOKRATE"));
-			bankBookDTO2.setBOOKSALE(rs.getInt("BOOKSALE"));
+			bankBookDTO2.setBookNum(rs.getLong("bookNum"));
+			bankBookDTO2.setBookName(rs.getNString("bookName"));
+			bankBookDTO2.setBookRate(rs.getDouble("bookRate"));
+			bankBookDTO2.setBookSale(rs.getInt("bookSale"));
 			
 		}
 		

@@ -2,36 +2,34 @@ package com.jw.start.bankbook;
 
 public class BankBookDTO {
 	
-	private long BOOKNUM;
-	private String BOOKNAME;
-	private double BOOKRATE;
-	private int BOOKSALE;
-	public long getBOOKNUM() {
-		return BOOKNUM;
+	private long bookNum;
+	private String bookName;
+	private double bookRate;
+	private int bookSale;
+	public long getBookNum() {
+		return bookNum;
 	}
-	public void setBOOKNUM(long l) {
-		BOOKNUM = l;
+	public void setBookNum(long bookNum) {
+		this.bookNum = bookNum;
 	}
-	public String getBOOKNAME() {
-		return BOOKNAME;
+	public String getBookName() {
+		return bookName;
 	}
-	public void setBOOKNAME(String bOOKNAME) {
-		BOOKNAME = bOOKNAME;
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
 	}
-	public double getBOOKRATE() {
-		return BOOKRATE;
+	public double getBookRate() {
+		return bookRate;
 	}
-	public void setBOOKRATE(double d) {
-		BOOKRATE = d;
+	public void setBookRate(double bookRate) {
+		this.bookRate = bookRate;
 	}
-	public int getBOOKSALE() {
-		return BOOKSALE;
+	public int getBookSale() {
+		return bookSale;
 	}
-	public void setBOOKSALE(int bOOKSALE) {
-		BOOKSALE = bOOKSALE;
+	public void setBookSale(int bookSale) {
+		this.bookSale = bookSale;
 	}
 	
 	
-	
-
 }

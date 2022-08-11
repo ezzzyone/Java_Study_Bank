@@ -1,11 +1,17 @@
 package com.jw.start.member;
 
+import java.util.ArrayList;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.jw.start.bankbook.BankBookDAO;
+import com.jw.start.bankbook.BankBookDTO;
 
 @Controller 
 //이 클래스는 컨트롤러 역할
@@ -13,16 +19,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value="/member/*") //경로지정
 public class MemberController {
 	
+	private static final String Redirect = null;
+
+
 	// 멤버 밑에 로그인 주소가 들어오면 실행해야하는 메서드 만들기
 	
 	//annotation 
 	//@
 	//"이렇게 하세요"설명+실행
 	
-	 @RequestMapping (value = "login")
+	 @RequestMapping (value = "login", method= RequestMethod.GET)
 	public String login() {
 		System.out.println("로그인 실행");
 		return "member/login";
+	}
+	 
+	 @RequestMapping (value = "login", method= RequestMethod.POST)
+	public String login(BankMembersDTO bankMembersDTO) {
+		System.out.println("db에 로그인 실행");
+		//로그인 끝나면 홈페이지로 이동
+		//Redirect:다시 접속할 URL주소
+		return "redirect:../";
 	}
 	
 	 //메소드 get으로 실행
@@ -60,7 +77,35 @@ public class MemberController {
 		
 			
 		
-		return "member/join";
+		return "redirect:./login";
+	}
+//1. void	
+//	@RequestMapping (value="search",method= RequestMethod.GET)
+//	public void getSearchByID() {
+//	}
+	
+//2.String	
+	@RequestMapping (value="search",method= RequestMethod.GET)
+	public String getSearchByID() {
+		
+		return "member/search";
 	}
 	
+	
+//	ModelAndView
+	@RequestMapping (value="search",method= RequestMethod.POST)
+	public ModelAndView getSearchByID(String search)throws Exception {
+		
+		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		ModelAndView mv = new ModelAndView();
+		ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchByID(search);
+		mv.setViewName("member/list");
+		mv.addObject("list", ar);
+		
+		return mv;
+	}
+
+	
+
+
 }

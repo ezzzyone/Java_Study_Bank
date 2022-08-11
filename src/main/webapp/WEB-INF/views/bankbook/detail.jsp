@@ -24,15 +24,15 @@
 </thead>
 
 <tbody>
-<td> <%= bankBookDTO.getBOOKNAME() %>
+<td> <%= bankBookDTO.getBookName() %>
 </td>
-<td> <%= bankBookDTO.getBOOKNUM() %>
+<td> <%= bankBookDTO.getBookNum() %>
 </td>
-<td> <%= bankBookDTO.getBOOKRATE() %>
+<td> <%= bankBookDTO.getBookRate() %>
 </td>
-<td> <%= bankBookDTO.getBOOKSALE() %>
+<td> <%= bankBookDTO.getBookSale() %>
 </td>
-<td><% if(bankBookDTO.getBOOKSALE()==1){%>
+<td><% if(bankBookDTO.getBookSale()==1){%>
 판매중!
 <%} else{ %>
 안판매중 
@@ -48,6 +48,8 @@
 <a href="../member/login">Login</a>
 <!-- 절대 -->
 <a href="/member/join">join</a>
+
+<a href="./list">back to list</a>
 
 </body>
 </html>
