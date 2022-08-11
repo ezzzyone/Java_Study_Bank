@@ -1,6 +1,7 @@
 package com.jw.start.bankbook;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +30,7 @@ public class BankBookController  {
 	@RequestMapping(value="detail",method=RequestMethod.GET)
 	public ModelAndView detail(BankBookDTO bankBookDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		System.out.println(bankBookDTO.getBookNum());
+		System.out.println("상세조회 통장번호: "+bankBookDTO.getBookNum());
 		
 		BankBookDAO bankBookDAO = new BankBookDAO();
 		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
@@ -40,12 +41,30 @@ public class BankBookController  {
 		return mv;
 	}
 	
+	@RequestMapping(value="delete",method=RequestMethod.GET)
+	public ModelAndView setDelete(BankBookDTO bankBookDTO) throws Exception{
+		System.out.println("삭제");
+		ModelAndView mv = new ModelAndView();
+		BankBookDAO bankBookDAO = new BankBookDAO();
+		int rs = bankBookDAO.setDelete(bankBookDTO);
+		//return "bankbook/detail";
+
+		if (rs==1){
+			System.out.println("성공~ ^ ^");
+		}else { System.out.println("실패 ㅠㅠ");	}
+		
+		
+		mv.setViewName("redirect:./list");
+		return mv;
+	}
+	
 //ModelAndView
 	@RequestMapping(value="add",method=RequestMethod.GET)
 	public ModelAndView add(){
 		//modelandview로 리턴
 		ModelAndView mv = new ModelAndView();
 		System.out.println("add에 get으로 접근!");
+		BankBookDTO bankBookDTO = new BankBookDTO();
 		mv.setViewName("bankbook/add"); //직접 지정
 		//return "bankbook/add"; -- setViewName 리턴과정을 스프링이 해줌. 
 		
@@ -66,5 +85,36 @@ public class BankBookController  {
 		mv.setViewName("redirect:./list");
 		
 		return mv;
+	}
+	@RequestMapping(value="update",method=RequestMethod.GET)
+	public ModelAndView update(BankBookDTO bankBookDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("수정 통장번호: "+bankBookDTO.getBookNum());
+		
+		BankBookDAO bankBookDAO = new BankBookDAO();
+		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
+		//return "bankbook/detail";
+		mv.setViewName("bankbook/update");
+		mv.addObject("dto", bankBookDTO);
+		
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public ModelAndView setupdate(BankBookDTO bankBookDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("update-post");
+		BankBookDAO bankBookDAO = new BankBookDAO();
+		int rs = bankBookDAO.setUpdate(bankBookDTO);
+		//return "bankbook/detail";
+
+		if (rs==1){
+			System.out.println("성공~ ^ ^");
+		}else { System.out.println("실패 ㅠㅠ");	}
+		
+		mv.setViewName("redirect:./detail?bookNum="+bankBookDTO.getBookNum());
+		return mv;
+		
 	}
 }
