@@ -9,7 +9,7 @@
 <body>
 
 
-<form action="join" method="POST">
+<form action="join.do" method="POST">
 <h1>✿회원가입✿( ღ'ᴗ'ღ )</h1>
 
 <hr>

@@ -7,13 +7,4 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="search.do" method="POST">
-<h1>member search ・ิ_・ิ ??</h1>
-
-
-<input type="text" name ="search">
-<input type="submit" value="제출">
-</form>
-</body>
-
-</html>  
+<h1>Aヽ(゜▽゜　)－Ccount</h1>

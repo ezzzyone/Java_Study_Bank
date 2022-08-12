@@ -16,20 +16,20 @@
 <h1>₍₍ ◝(・ω・)◟ ⁾⁾ Index</h1>
 
 	
-<c:if test="${empty member}">
+<c:if test="${empty sessionScope.member}">
 
-    <a href="./member/login"><h2>Login</h2></a> 
-    <a href="./member/join"><h2>Join</h2></a> 
+    <a href="./member/login.do"><h2>Login</h2></a> 
+    <a href="./member/join.do"><h2>Join</h2></a> 
     
 </c:if>
 
-	<c:if test="${not empty member }">
-	
+	<c:if test="${not empty sessionScope.member}">
+	<h1>♥${sessionScope.member.username}님♥ 환영합니다!</h1>
 	<a href="#"><h2>My page</h2></a>
-	<a href="#"><h2>Logout</h2></a>
+	<a href="./member/logout.do"><h2>Logout</h2></a>
 
-	<a href="../bankbook/list"><h2>List</h2></a>
-	<a href="../bankbook/add"><h2>Add</h2></a>
+	<a href="../bankbook/list.do"><h2>List</h2></a>
+	<a href="../bankbook/add.do"><h2>Add</h2></a>
 	
 	</c:if>
 

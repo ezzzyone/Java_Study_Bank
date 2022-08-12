@@ -35,11 +35,13 @@ public class BankBookDAO implements BookDAO{
 		Connection con = DBConnector.getConnection();
 		String sql = "insert into BANKBOOK(BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) values (?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
+		Calendar ca = Calendar.getInstance();
 		
-		st.setLong(1, bankBookDTO.getBookNum());
+		st.setLong(1, ca.getTimeInMillis());
 		st.setString(2, bankBookDTO.getBookName());
 		st.setDouble(3,bankBookDTO.getBookRate());
 		st.setInt(4, bankBookDTO.getBookSale());
+		
 		
 		int rs = st.executeUpdate();
 		

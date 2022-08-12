@@ -37,7 +37,7 @@
     <c:forEach items="${requestScope.list}" var="dto"> 
     
     <tr>
-    <td><a href="./detail?bookNum=${pageScope.dto.bookNum}">${pageScope.dto.bookName}</a></td>
+    <td><a href="./detail.do?bookNum=${pageScope.dto.bookNum}">${pageScope.dto.bookName}</a></td>
     <td>${pageScope.dto.bookRate}</td>
     </tr>
     
@@ -54,6 +54,6 @@
         
      </tfoot>
     </table>
-<a href="./add">상품등록 </a> 
+<a href="./add.do">상품등록 </a> 
 </body>
 </html>

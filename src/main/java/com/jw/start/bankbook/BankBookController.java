@@ -3,6 +3,8 @@ package com.jw.start.bankbook;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +20,7 @@ import com.jw.start.member.BankMembersDTO;
 public class BankBookController  {
 
 	//Model
-	@RequestMapping(value="list",method=RequestMethod.GET)
+	@RequestMapping(value="list.do",method=RequestMethod.GET)
 	public String list(Model model) throws Exception{
 		//jsp로 보낼 데이터를 model에 담는다.
 		BankBookDAO bankBookDAO = new BankBookDAO();
@@ -27,7 +29,7 @@ public class BankBookController  {
 		return "bankbook/list";
 	}
 	
-	@RequestMapping(value="detail",method=RequestMethod.GET)
+	@RequestMapping(value="detail.do",method=RequestMethod.GET)
 	public ModelAndView detail(BankBookDTO bankBookDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println("상세조회 통장번호: "+bankBookDTO.getBookNum());
@@ -41,7 +43,7 @@ public class BankBookController  {
 		return mv;
 	}
 	
-	@RequestMapping(value="delete",method=RequestMethod.GET)
+	@RequestMapping(value="delete.do",method=RequestMethod.GET)
 	public ModelAndView setDelete(BankBookDTO bankBookDTO) throws Exception{
 		System.out.println("삭제");
 		ModelAndView mv = new ModelAndView();
@@ -54,12 +56,12 @@ public class BankBookController  {
 		}else { System.out.println("실패 ㅠㅠ");	}
 		
 		
-		mv.setViewName("redirect:./list");
+		mv.setViewName("redirect:./list.do");
 		return mv;
 	}
 	
 //ModelAndView
-	@RequestMapping(value="add",method=RequestMethod.GET)
+	@RequestMapping(value="add.do",method=RequestMethod.GET)
 	public ModelAndView add(){
 		//modelandview로 리턴
 		ModelAndView mv = new ModelAndView();
@@ -71,7 +73,7 @@ public class BankBookController  {
 		return mv; //직접 지정
 	}
 	
-	@RequestMapping(value="add",method=RequestMethod.POST)
+	@RequestMapping(value="add.do",method=RequestMethod.POST)
 	public ModelAndView add (BankBookDTO bankBookDTO) throws Exception{
 		//RequestMapping 경로잡아주고 void로 리턴값 설정하면 리턴해주지 않아도 됨
 		System.out.println("add에 post로 접근!");
@@ -82,11 +84,11 @@ public class BankBookController  {
 			System.out.println("성공~ ^ ^");
 		}else { System.out.println("실패 ㅠㅠ");	}
 		
-		mv.setViewName("redirect:./list");
+		mv.setViewName("redirect:./list.do");
 		
 		return mv;
 	}
-	@RequestMapping(value="update",method=RequestMethod.GET)
+	@RequestMapping(value="update.do",method=RequestMethod.GET)
 	public ModelAndView update(BankBookDTO bankBookDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println("수정 통장번호: "+bankBookDTO.getBookNum());
@@ -101,7 +103,7 @@ public class BankBookController  {
 		
 	}
 	
-	@RequestMapping(value="update",method=RequestMethod.POST)
+	@RequestMapping(value="update.do",method=RequestMethod.POST)
 	public ModelAndView setupdate(BankBookDTO bankBookDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println("update-post");
@@ -113,7 +115,7 @@ public class BankBookController  {
 			System.out.println("성공~ ^ ^");
 		}else { System.out.println("실패 ㅠㅠ");	}
 		
-		mv.setViewName("redirect:./detail?bookNum="+bankBookDTO.getBookNum());
+		mv.setViewName("redirect:./detail.do?bookNum="+bankBookDTO.getBookNum());
 		return mv;
 		
 	}
