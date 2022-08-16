@@ -6,6 +6,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +23,15 @@ import com.jw.start.bankbook.BankBookDTO;
 @RequestMapping(value="/member/*") //경로지정
 public class MemberController {
 	
+	@Autowired
+	private BankMemberService bankMemberService;
+	
+//	@Autowired
+//	public MemberController(BankMembersDAO bankMembersDAO) {
+//		this.bankMembersDAO = bankMembersDAO;
+//	}
+	
 	private static final String Redirect = null;
-
-
 	// 멤버 밑에 로그인 주소가 들어오면 실행해야하는 메서드 만들기
 	
 	//annotation 
@@ -46,8 +54,8 @@ public class MemberController {
 	 @RequestMapping (value = "login.do", method= RequestMethod.POST)
 	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO,Model model) throws Exception{
 		System.out.println("db에 로그인 실행");
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
+		
+		bankMembersDTO = bankMemberService.getLogin(bankMembersDTO);
 		System.out.println(bankMembersDTO);
 		HttpSession session = request.getSession();
 		session.setAttribute("member", bankMembersDTO);
@@ -70,7 +78,7 @@ public class MemberController {
 		
 //		String join = request.getParameter("id");
 //		System.out.println(join);
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		
 //		BankMembersDTO bankMembersDTO = new BankMembersDTO();
 
 //		bankMembersDTO.setName(request.getParameter("id"));
@@ -82,7 +90,7 @@ public class MemberController {
 //		파라미터 이름과 멤버변수이름이 동일해야한다.****쭝요
 //		setter 메서드
 		
-			int result = bankMembersDAO.setJoin(bankMembersDTO);
+			int result = bankMemberService.setJoin(bankMembersDTO);
 			if (result==1) {
 				System.out.println("조인 성공!");
 			}else { System.out.println("조인 실패ㅜㅜ");}
@@ -109,9 +117,9 @@ public class MemberController {
 	@RequestMapping (value="search.do",method= RequestMethod.POST)
 	public ModelAndView getSearchByID(String search)throws Exception {
 		
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+	
 		ModelAndView mv = new ModelAndView();
-		ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchByID(search);
+		ArrayList<BankMembersDTO> ar = bankMemberService.getSearchByID(search);
 		mv.setViewName("member/list");
 		mv.addObject("list", ar);
 		
