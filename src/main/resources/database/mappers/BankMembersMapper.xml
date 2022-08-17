@@ -18,4 +18,4 @@
    insert into BANKMEMBERS(USERNAME, PASSWORD, NAME, EMAIL, PHONE) values(#{userName},#{password},#{name},#{email},#{phone})
 </insert>
 </mapper>
-		 
+		    
