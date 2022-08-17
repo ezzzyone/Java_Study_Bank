@@ -13,7 +13,7 @@
 <form action="./login.do" method = "POST">
 <div class = "container">
 <hr>
-I D <input type="text" name ="username" placeholder="아이디" value='jw'><br>
+I D <input type="text" name ="userName" placeholder="아이디" value='jw1'><br>
 PW <input type="password" name ="password" placeholder="비밀번호" value='wldnjs'> <input type="submit" value="로그인">
 
 </div>

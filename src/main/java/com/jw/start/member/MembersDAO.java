@@ -1,7 +1,7 @@
 package com.jw.start.member;
 
 import java.sql.Connection;
-import java.util.ArrayList;
+import java.util.List;
 
 import com.jw.start.util.DBConnector;
 
@@ -11,5 +11,5 @@ public interface MembersDAO {
 	public int setJoin(BankMembersDTO bankMembersDTO)throws Exception; 
 	
 	//검색어를 입력해서 ID를 찾기 abc순으로
-	public ArrayList<BankMembersDTO> getSearchByID(String search)throws Exception;	
+	public List<BankMembersDTO> getSearchByID(String search)throws Exception;	
 }

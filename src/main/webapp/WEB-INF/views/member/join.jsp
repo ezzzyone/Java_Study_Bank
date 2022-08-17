@@ -15,7 +15,7 @@
 <hr>
 
 <div>
-아이디 <input type="text" name=username> <input type="button" value="중복확인"><br>
+아이디 <input type="text" name=userName> <input type="button" value="중복확인"><br>
 비밀번호 <input type="password" name="password"> <input type="button" value="비밀번호 확인"><br>
 </div>
 

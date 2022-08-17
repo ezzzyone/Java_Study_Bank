@@ -14,6 +14,7 @@
 
 <form action="home">
 <h1>₍₍ ◝(・ω・)◟ ⁾⁾ Index</h1>
+<h1>바보 멍청이 똥개 해삼 말미잘</h1>
 
 	
 <c:if test="${empty sessionScope.member}">
@@ -24,7 +25,7 @@
 </c:if>
 
 	<c:if test="${not empty sessionScope.member}">
-	<h1>♥${sessionScope.member.username}님♥ 환영합니다!</h1>
+	<h1>♥${sessionScope.member.userName}님♥ 환영합니다!</h1>
 	<a href="#"><h2>My page</h2></a>
 	<a href="./member/logout.do"><h2>Logout</h2></a>
 
