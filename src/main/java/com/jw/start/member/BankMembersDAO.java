@@ -47,7 +47,7 @@ public class BankMembersDAO implements MembersDAO{
 	@Override
 	public int setJoin(BankMembersDTO bankMembersDTO) throws Exception {
 		
-		return sqlSession.insert(NAMESPACE+"setJoin"+bankMembersDTO);
+		return sqlSession.insert(NAMESPACE+"setJoin",bankMembersDTO);
 				//NAMESPACE+어느아이디로+보내줄것
 	}
 

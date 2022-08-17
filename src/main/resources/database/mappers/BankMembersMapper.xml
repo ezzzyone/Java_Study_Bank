@@ -15,7 +15,7 @@
    </select> <!-- #{DAO의 변수명} -->
    
    <insert id="setJoin" parameterType="com.jw.start.member.BankMembersDTO">
-   insert into BANKMEMBERS(USERNAME, PASSWORD, NAME, EMAIL, PHONE) values (#{userName},#{password},#{email},#{phone})
+   insert into BANKMEMBERS(USERNAME, PASSWORD, NAME, EMAIL, PHONE) values(#{userName},#{password},#{name},#{email},#{phone})
 </insert>
 </mapper>
 		 

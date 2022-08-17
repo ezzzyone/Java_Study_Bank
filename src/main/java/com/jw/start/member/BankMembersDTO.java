@@ -6,7 +6,7 @@ public class BankMembersDTO {
 	private String userName;
 	private String password;
 	private String name;
-	private String Email;
+	private String email;
 	private String phone;
 	
 	public String getuserName() {
@@ -27,11 +27,12 @@ public class BankMembersDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getPhone() {
 		return phone;

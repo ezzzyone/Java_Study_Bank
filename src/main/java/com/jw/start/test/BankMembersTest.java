@@ -30,21 +30,21 @@ public class BankMembersTest {
 			e.printStackTrace();
 		} */
 		
-		try {
-			ArrayList<BankMembersDTO> bankMembersDTOs = bankMembersDAO.getSearchByID("jw");
-			System.out.println("아이디 "+"비번 "+"  이름 "+"    이메일 "+"      번호");
-			for(int i=0; i<bankMembersDTOs.size();i++) {
-			System.out.print(bankMembersDTOs.get(i).getUsername()+" "); 
-			System.out.print(bankMembersDTOs.get(i).getPassword()+" ");
-			System.out.print(bankMembersDTOs.get(i).getName()+" ");
-			System.out.print(bankMembersDTOs.get(i).getEmail()+" ");
-			System.out.println(bankMembersDTOs.get(i).getPhone());
-			}
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//		try {
+//			ArrayList<BankMembersDTO> bankMembersDTOs = bankMembersDAO.getSearchByID("jw");
+//			System.out.println("아이디 "+"비번 "+"  이름 "+"    이메일 "+"      번호");
+//			for(int i=0; i<bankMembersDTOs.size();i++) {
+//			//System.out.print(bankMembersDTOs.get(i).getUsername()+" "); 
+//			System.out.print(bankMembersDTOs.get(i).getPassword()+" ");
+//			System.out.print(bankMembersDTOs.get(i).getName()+" ");
+//			System.out.print(bankMembersDTOs.get(i).getEmail()+" ");
+//			System.out.println(bankMembersDTOs.get(i).getPhone());
+//			}
+//			
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 
 }
