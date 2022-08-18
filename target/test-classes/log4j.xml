@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.jw.start">
+	<logger name="com.jw.home">
 		<level value="info" />
 	</logger>
 	
