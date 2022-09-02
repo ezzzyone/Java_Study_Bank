@@ -1,4 +1,4 @@
-package com.jw.start.bankbook;
+package com.jw.home.bankbook;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jw.start.member.BankMembersDTO;
+import com.jw.home.member.BankMembersDTO;
 
 
 @Controller

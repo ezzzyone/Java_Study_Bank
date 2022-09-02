@@ -1,4 +1,4 @@
-package com.jw.start.bankbook;
+package com.jw.home.bankbook;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,7 @@ import java.util.Calendar;
 
 import org.springframework.stereotype.Repository;
 
-import com.jw.start.util.DBConnector;
+import com.jw.home.util.DBConnector;
 
 @Repository
 public class BankBookDAO implements BookDAO{

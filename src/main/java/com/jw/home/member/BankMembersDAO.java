@@ -1,4 +1,4 @@
-package com.jw.start.member;
+package com.jw.home.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,15 +10,15 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.jw.start.bankbook.BankBookDTO;
-import com.jw.start.util.DBConnector;
+import com.jw.home.bankbook.BankBookDTO;
+import com.jw.home.util.DBConnector;
 
 @Repository
 public class BankMembersDAO implements MembersDAO{
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.jw.start.member.BankMembersDAO.";
+	private final String NAMESPACE = "com.jw.home.member.BankMembersDAO.";
 	
 	public BankMembersDTO getLogin(BankMembersDTO bankMembersDTO) throws Exception{
 		

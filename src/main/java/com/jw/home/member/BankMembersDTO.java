@@ -1,4 +1,4 @@
-package com.jw.start.member;
+package com.jw.home.member;
 
 public class BankMembersDTO {
 

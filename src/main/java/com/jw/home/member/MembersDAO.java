@@ -1,9 +1,9 @@
-package com.jw.start.member;
+package com.jw.home.member;
 
 import java.sql.Connection;
 import java.util.List;
 
-import com.jw.start.util.DBConnector;
+import com.jw.home.util.DBConnector;
 
 public interface MembersDAO { 
 	

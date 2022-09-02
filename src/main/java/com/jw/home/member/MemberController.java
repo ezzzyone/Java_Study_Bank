@@ -1,4 +1,4 @@
-package com.jw.start.member;
+package com.jw.home.member;
 
 
 import java.util.List;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jw.start.bankbook.BankBookDAO;
-import com.jw.start.bankbook.BankBookDTO;
-import com.jw.start.bankbook.BankBookService;
+import com.jw.home.bankbook.BankBookDAO;
+import com.jw.home.bankbook.BankBookDTO;
+import com.jw.home.bankbook.BankBookService;
 
 @Controller 
 //이 클래스는 컨트롤러 역할

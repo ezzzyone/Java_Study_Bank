@@ -4,17 +4,17 @@
 		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- namespace의 값은 사용할 DAO의 풀패키지명 -->
-<mapper namespace="com.jw.start.member.BankMembersDAO">
+<mapper namespace="com.jw.home.member.BankMembersDAO">
    <!-- id는 DAO의 메서드명과 동일하게 -->
-   <select id="getLogin" parameterType="com.jw.start.member.BankMembersDTO" resultType="com.jw.start.member.BankMembersDTO">
+   <select id="getLogin" parameterType="com.jw.home.member.BankMembersDTO" resultType="com.jw.home.member.BankMembersDTO">
       select USERNAME, NAME from BANKMEMBERS where USERNAME=#{userName} AND PASSWORD=#{password}
    </select> <!-- #{getter의 이름} -->
    
-   <select id="getSearchByID" parameterType="java.lang.String" resultType="com.jw.start.member.BankMembersDTO">
+   <select id="getSearchByID" parameterType="java.lang.String" resultType="com.jw.home.member.BankMembersDTO">
       select * from BANKMEMBERS where USERNAME like '%'||#{search}||'%' ORDER BY USERNAME DESC
    </select> <!-- #{DAO의 변수명} -->
    
-   <insert id="setJoin" parameterType="com.jw.start.member.BankMembersDTO">
+   <insert id="setJoin" parameterType="com.jw.home.member.BankMembersDTO">
    insert into BANKMEMBERS(USERNAME, PASSWORD, NAME, EMAIL, PHONE) values(#{userName},#{password},#{name},#{email},#{phone})
 </insert>
 </mapper>
